@@ -10,17 +10,18 @@ namespace BirthdayMessenger
     public static class CheckDate
     {
         [FunctionName("CheckDate")]
-        [return: ServiceBus("birthdayalert", Connection = "PeopleServiceBusConnection")]
-        public static async Task<String> Run(
+        public static async void Run(
             [TimerTrigger("%Timer%")]TimerInfo myTimer,             // variable Timer set at local.settings.json
             [Table("people", Connection = "PeopleTable")] CloudTable cloudTable,
+            [ServiceBus("birthdayalert", Connection = "PeopleServiceBusConnection")] IAsyncCollector<Person> messages,
             ILogger log)
         {
             log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 
             try
             {
-                var rangeQuery = new TableQuery<Person>().Where(
+                var rangeQuery = new TableQuery<Person>()
+                    .Where(
                     TableQuery.CombineFilters(
                         TableQuery.GenerateFilterConditionForInt("month", QueryComparisons.Equal,
                             DateTime.Now.Month),
@@ -32,18 +33,14 @@ namespace BirthdayMessenger
                 foreach (var entity in await cloudTable.ExecuteQuerySegmentedAsync(rangeQuery, null))
                 {
                     // log.LogInformation($"{entity.Name}\t{entity.BirthMonth}\t{entity.BirthDay}");
-                    // return entity;
-                    string entityJsonString = JsonSerializer.Serialize(entity);
-                    return entityJsonString;
+                    // string entityJsonString = JsonSerializer.Serialize(entity);
+                    await messages.AddAsync(entity);
                 }
-                return null;
             }
             catch (Exception e)
             {
                 Console.WriteLine("\nException Caught!");
                 Console.WriteLine("Message :{0} ", e.Message);
-
-                return null;
             }
         }
     }
