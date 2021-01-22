@@ -12,8 +12,7 @@ namespace BirthdayMessenger
         [FunctionName("CheckDate")]
         [return: ServiceBus("birthdayalert", Connection = "PeopleServiceBusConnection")]
         public static async Task<String> Run(
-            [TimerTrigger("0 30 9 * * *")]TimerInfo myTimer, // once every day at 9:30 AM
-            // [TimerTrigger("30 * * * * *")] TimerInfo myTimer, // once every 30 seconds - great for testing
+            [TimerTrigger("%Timer%")]TimerInfo myTimer,             // variable Timer set at local.settings.json
             [Table("people", Connection = "PeopleTable")] CloudTable cloudTable,
             ILogger log)
         {

@@ -5,6 +5,7 @@
         "AzureWebJobsStorage": "",
         "PeopleServiceBusConnection": "",
         "PeopleTable": "",
-        "GiphyAPIKey": ""
+        "GiphyAPIKey": "",
+        "Timer": ""
     }
 }
