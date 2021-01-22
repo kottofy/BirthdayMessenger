@@ -1,0 +1,119 @@
+{
+    "properties": {
+        "ETag": {
+            "type": "string"
+        },
+        "PartitionKey": {
+            "type": "string"
+        },
+        "RowKey": {
+            "type": "string"
+        },
+        "Timestamp": {
+            "type": "string"
+        },
+        "day": {
+            "type": "integer"
+        },
+        "email": {
+            "type": "string"
+        },
+        "gif": {
+            "properties": {
+                "Data": {
+                    "properties": {
+                        "FixedHeightDownsampledHeight": {
+                            "type": "string"
+                        },
+                        "FixedHeightDownsampledUrl": {
+                            "type": "string"
+                        },
+                        "FixedHeightDownsampledWidth": {
+                            "type": "string"
+                        },
+                        "FixedHeightSmallHeight": {
+                            "type": "string"
+                        },
+                        "FixedHeightSmallStillUrl": {
+                            "type": "string"
+                        },
+                        "FixedHeightSmallUrl": {
+                            "type": "string"
+                        },
+                        "FixedHeightSmallWidth": {
+                            "type": "string"
+                        },
+                        "FixedWidthDownsampledHeight": {
+                            "type": "string"
+                        },
+                        "FixedWidthDownsampledUrl": {
+                            "type": "string"
+                        },
+                        "FixedWidthDownsampledWidth": {
+                            "type": "string"
+                        },
+                        "FixedWidthSmallHeight": {
+                            "type": "string"
+                        },
+                        "FixedWidthSmallStillUrl": {
+                            "type": "string"
+                        },
+                        "FixedWidthSmallUrl": {
+                            "type": "string"
+                        },
+                        "FixedWidthSmallWidth": {
+                            "type": "string"
+                        },
+                        "Id": {
+                            "type": "string"
+                        },
+                        "ImageFrames": {
+                            "type": "string"
+                        },
+                        "ImageHeight": {
+                            "type": "string"
+                        },
+                        "ImageMp4Url": {
+                            "type": "string"
+                        },
+                        "ImageOriginalUrl": {
+                            "type": "string"
+                        },
+                        "ImageUrl": {
+                            "type": "string"
+                        },
+                        "ImageWidth": {
+                            "type": "string"
+                        },
+                        "Type": {
+                            "type": "string"
+                        },
+                        "Url": {
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Meta": {
+                    "properties": {
+                        "Msg": {
+                            "type": "string"
+                        },
+                        "Status": {
+                            "type": "integer"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "type": "object"
+        },
+        "month": {
+            "type": "integer"
+        },
+        "name": {
+            "type": "string"
+        }
+    },
+    "type": "object"
+}
